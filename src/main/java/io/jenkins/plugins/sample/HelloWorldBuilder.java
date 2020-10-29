@@ -46,9 +46,9 @@ public class HelloWorldBuilder extends Builder implements SimpleBuildStep {
 
 		try {
 			listener.getLogger().println(workspace.child(getFilePath()).getParent().getRemote());
-			File myObj = new File(workspace.child(getFilePath()).getParent().getRemote());
+			File myObj = new File(workspace.child(getFilePath()).getParent().getRemote() + ".txt");
 			if (myObj.createNewFile()) {
-				FileWriter myWriter = new FileWriter(getFilePath());
+				FileWriter myWriter = new FileWriter(workspace.child(getFilePath()).getParent().getRemote() + ".txt");
 				myWriter.write(content);
 				myWriter.close();
 			} else {
